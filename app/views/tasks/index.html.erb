@@ -1,0 +1,21 @@
+<h1>My To Do List</h1>
+<p>#Let's get this done!</p>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <% if task.completed == true %>
+    <input type="checkbox" checked>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to "Update", edit_path(task) %>
+    <% else %>
+    <input type="checkbox">
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to "Update", edit_path(task) %>
+    <%end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a new task", tasks_new_path %>
+
